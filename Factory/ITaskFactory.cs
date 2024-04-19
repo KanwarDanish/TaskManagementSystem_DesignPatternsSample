@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TaskManagementSystem.Factory
 {
-    public interface ITaskFactory //FACTORY INTERFACE(Creational pattern)..This will serve to create different type of tasks from the same factory
+    public interface ITaskFactory //FACTORY INTERFACE(Creational pattern)..This will serve to create different type of tasks from the same factory interface
     {
         Task CreateTask(string task, Priority priority, DateTime dueDate);
     }

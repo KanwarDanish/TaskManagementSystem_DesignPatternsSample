@@ -7,30 +7,37 @@ using TaskManagementSystem.Singleton;
 
 namespace TaskManagementSystem
 {
-    internal class TaskManager
+    public static class TaskManager
     {
-        private TaskRepository taskRepository;
+        private static TaskRepository taskRepository;
 
-        public TaskManager()
+        static TaskManager()
         {
             taskRepository = TaskRepository.Instance;
         }
 
-        public void AddTask(Task task)
+        public static void AddTask(Task task)
         {
             taskRepository.AddTask(task);
         }
 
-        public void DeleteTask(int id)
+        public static void DeleteTask(int id)
         {
             taskRepository.DeleteTask(id);
         }
 
-        public Task GetTask(int id)
+        public static Task GetTask(int id)
         {
             return taskRepository.GetTask(id);
         }
 
-        // Add methods for updating tasks, marking as completed, etc.
+        public static void UpdateTask(Task task)
+        {
+             taskRepository.UpdateTask(task);
+        }
+
+
+        // Add static methods for updating tasks, marking as completed, etc.
     }
+
 }

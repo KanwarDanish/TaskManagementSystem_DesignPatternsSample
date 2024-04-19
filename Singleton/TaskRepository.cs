@@ -9,7 +9,7 @@ namespace TaskManagementSystem.Singleton
     public class TaskRepository //SINGLETON IMPLIMENTATION
     {
         private static TaskRepository instance;
-        private Dictionary<int, Task> tasks = new Dictionary<int, Task>();
+        public Dictionary<int, Task> tasks = new Dictionary<int, Task>();
         private int nextID = 1;
 
         // Private constructor to prevent instantiation
@@ -47,7 +47,14 @@ namespace TaskManagementSystem.Singleton
             return tasks.ContainsKey(id) ? tasks[id] : null;
         }
 
-        // Add methods for updating tasks, marking as completed, etc.
+        public void UpdateTask(Task task)
+        {
+            if (tasks.ContainsKey(task.ID))
+            {
+                Task taskToUpdate = tasks[task.ID];
+                taskToUpdate = task;
+            }
+        }
     }
 
 }

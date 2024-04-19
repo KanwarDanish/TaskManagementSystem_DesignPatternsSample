@@ -13,18 +13,21 @@ namespace TaskManagementSystem.Adapter
         public TaskAdapter(ExternalTask externalTask)
         {
             this.externalTask = externalTask;
+
         }
 
-        public int ID => externalTask.TaskID;
-
-        public string Name => externalTask.TaskName;
-
-        public  string Description => externalTask.TaskDescription;
-
-        public  string Priority => externalTask.Priority;
-
-        public DateTime DueDate => externalTask.Deadline;
-
-        public bool IsCompleted => externalTask.IsCompleted;
+         public Task Adapt()
+        {
+            Task task = new Task
+            {
+                ID = externalTask.TaskID,
+                Name = externalTask.TaskName,
+                Description = externalTask.TaskDescription,
+                Priority = (Priority)Enum.Parse(typeof(Priority), externalTask.Priority),
+                DueDate = externalTask.Deadline,
+                IsCompleted = externalTask.IsCompleted
+            };
+            return task;
+        }
     }
 }
